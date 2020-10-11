@@ -80,8 +80,8 @@ get_links_map <- function(.tab, .col_url, .col_id, .col_ticker, .dir) {
   readr::write_rds(tab_res, .path_links_res)
   readr::write_rds(tab_err, .path_links_err)
   
-  openxlsx::write.xlsx(tab_res, file.path(.dir, "results_links.xlsx"))
-  openxlsx::write.xlsx(tab_err, file.path(.dir, "errors_links.xlsx"))
+  openxlsx::write.xlsx(tab_res, dpath(.dir, "results_links.xlsx"))
+  openxlsx::write.xlsx(tab_err, dpath(.dir, "errors_links.xlsx"))
   
   return(tab_res)
 }
