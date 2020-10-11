@@ -67,7 +67,7 @@ get_links_map <- function(.tab, .col_url, .col_id, .col_ticker, .dir) {
   tab_err <- purrr::compact(lst_links$error) %>%
     tibble::enframe() %>%
     dplyr::mutate(
-      message = map_chr(value, ~.x[[1]]),
+      message = purrr::map_chr(value, ~.x[[1]]),
       query_time = Sys.time()
     ) %>%
     dplyr::select({{.col_id}} := name, message, query_time) %>%
