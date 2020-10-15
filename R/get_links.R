@@ -10,7 +10,7 @@ get_links <- function(.tab_row, .col_url, .col_id, .col_ticker) {
       year = as.integer(stringi::stri_extract_last_regex(value, "\\d{4}")),
       link = xml2::url_absolute(value, "https://www.annualreports.com"),
       name_orig = gsub(".pdf", "", basename(link)),
-      name_save = paste("AR_", {{.col_id}}, {{.col_ticker}}, year, sep = "_"),
+      name_save = paste("AR", {{.col_id}}, {{.col_ticker}}, year, sep = "_"),
       query_time = Sys.time()
     ) %>% dplyr::select(-value, -name)
 }
